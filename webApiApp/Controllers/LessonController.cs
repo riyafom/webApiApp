@@ -8,47 +8,46 @@ namespace webApiApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LecturerController : ControllerBase
+    public class LessonController : ControllerBase
     {
         private readonly Context _context;
-        private readonly LecturerRepository _lecturerRepository;
+        private readonly LessonRepository _lessonRepository;
 
-        public LecturerController(Context context)
+        public LessonController(Context context)
         {
             _context = context;
             /* снять примечание после описания репозитория
-                _lecturerRepository = new LecturerRepository(_context);*/
+                _lessonRepository = new LessonRepository(_context);*/
         }
 
 
-
-        // GET: api/<LecturerController>
+        // GET: api/<LessonController>
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/<LecturerController>/5
+        // GET api/<LessonController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<LecturerController>
+        // POST api/<LessonController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<LecturerController>/5
+        // PUT api/<LessonController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<LecturerController>/5
+        // DELETE api/<LessonController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
