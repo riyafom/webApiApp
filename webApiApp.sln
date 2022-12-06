@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTfull.Domain", "RESTfull
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTfull.Infrastructure", "RESTfull\RESTfull.Infrastructure\RESTfull.Infrastructure.csproj", "{77CC7D19-E5BE-4EDD-9F5F-A1F21FBCA745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHelper", "TestHelper\TestHelper.csproj", "{6E5DDE7E-8A55-475E-A077-99AF0141A934}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHelper", "TestHelper\TestHelper.csproj", "{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{77CC7D19-E5BE-4EDD-9F5F-A1F21FBCA745}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77CC7D19-E5BE-4EDD-9F5F-A1F21FBCA745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77CC7D19-E5BE-4EDD-9F5F-A1F21FBCA745}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E5DDE7E-8A55-475E-A077-99AF0141A934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E5DDE7E-8A55-475E-A077-99AF0141A934}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E5DDE7E-8A55-475E-A077-99AF0141A934}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E5DDE7E-8A55-475E-A077-99AF0141A934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

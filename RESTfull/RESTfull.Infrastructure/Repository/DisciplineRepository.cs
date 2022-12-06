@@ -1,76 +1,91 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RESTfull.Domain;
 using RESTfull.Infrastructure.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RESTfull.Infrastructure.Repository
 {
-    internal class DisciplineRepository
+    public class DisciplineRepository
     {
-      private readonly Context _context;
-      public Context UnitOfWork
-      {
-        get
+        private readonly Context _context;
+        public Context UnitOfWork
         {
-          return _context;
+            get
+            {
+                return _context;
+            }
         }
-      }
-      public DisciplineRepository(Context context)
-      {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
-      }
-      public async Task<Discipline?> GetDisciplineAsync(string name)
-      {
-        return await _context.Disciplines.
-                     Where(p => p.Name == name).
-                     Include(p => p.Lessons).
-                     FirstOrDefaultAsync();
-      }
-      public async Task DeleteAsync(int id)
-      {
-        Lesson? lesson = await _context.Lessons.FindAsync(id);
-        if (lesson != null) 
+        public DisciplineRepository(Context context)
         {
-          _context.Remove(lesson);
-          await _context.SaveChangesAsync();
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
-      }
-      public void ChangeTrackerClear()
-      {
-        _context.ChangeTracker.Clear();
-      }
-      public async Task<List<Lesson>> GetAllAsync()
-      {
-      return await _context.Lessons.OrderBy(p => p.Lecturer).ToListAsync();
-      }
-      public async Task<Lesson?> GetByIdAsync(int id)
-      {
-        return await _context.Lessons.Where(p => p.Id == id).
-                                      Include(p => p.Discipline).
-                                      FirstOrDefaultAsync();
-      }
-      public async Task<Lesson?> GetByTopicAsync(string name)
-      {
-        return await _context.Lessons.Where(p => p.Topic == name).
-                                      Include(p => p.Discipline).
-                                      FirstOrDefaultAsync();
-      }
-      public async Task UpdateAsync(Lesson lesson)
-      {
-        var existLesson = GetByIdAsync(lesson.Id).Result;
-        if (existLesson != null)
+        public async Task<Discipline?> GetDisciplineAsync(string name)
         {
-          _context.Entry(existLesson).CurrentValues.SetValues(lesson);
-          foreach(var topic in lesson.Topic)
-          {
-            //
-          }
+            return await _context.Disciplines.
+                         Where(p => p.Name == name).
+                         Include(p => p.Lecturers).
+                         FirstOrDefaultAsync();
         }
-        await _context.SaveChangesAsync();
-      }
-  }
+        public async Task DeleteAsync(int id)
+        {
+            Discipline? discipline = await _context.Disciplines.FindAsync(id);
+            if (discipline != null)
+            {
+                _context.Remove(discipline);
+                await _context.SaveChangesAsync();
+            }
+        }
+        public void ChangeTrackerClear()
+        {
+            _context.ChangeTracker.Clear();
+        }
+        public async Task<List<Discipline>> GetAllAsync()
+        {
+            return await _context.Disciplines.OrderBy(p => p.Name).ToListAsync();
+        }
+        public async Task<Discipline?> GetByIdAsync(int id)
+        {
+            return await _context.Disciplines.Where(p => p.Id == id).
+                                          Include(p => p.Lecturers).
+                                          FirstOrDefaultAsync();
+        }
+        public async Task AddAsync(Discipline discipline)
+        {
+            _context.Disciplines.Add(discipline);
+            await _context.SaveChangesAsync();
+        }
+        public async Task<Discipline?> GetByNameAsync(string name)
+        {
+            return await _context.Disciplines.Where(p => p.Name == name).
+                                              Include(p => p.Lecturers).
+                                              FirstOrDefaultAsync();
+        }
+        public async Task UpdateAsync(Discipline discipline)
+        {
+            var existDiscipline = GetByIdAsync(discipline.Id).Result;
+            if (existDiscipline != null)
+            {
+                _context.Entry(existDiscipline).CurrentValues.SetValues(discipline);
+                foreach (var lecturer in discipline.Lecturers)
+                {
+                    var existLecturer = existDiscipline.Lecturers.FirstOrDefault(l => l.Id == lecturer.Id);
+                    if (existLecturer == null)
+                    {
+                        existDiscipline.Lecturers.Add(lecturer);
+                    }
+                    else
+                    {
+                        _context.Entry(existLecturer).CurrentValues.SetValues(lecturer);
+                    }
+                }
+                foreach (var existLecturer in existDiscipline.Lecturers)
+                {
+                    if (!discipline.Lecturers.Any(pn => pn.Id == existLecturer.Id))
+                    {
+                        _context.Remove(existLecturer);
+                    }
+                }
+            }
+            await _context.SaveChangesAsync();
+        }
+    }
 }

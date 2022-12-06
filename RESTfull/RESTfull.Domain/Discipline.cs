@@ -16,6 +16,8 @@ namespace RESTfull.Domain
         //Свойства навигации
         public List<Lesson> Lessons { get; set; } = new List<Lesson>();
         public List<Group> Groups { get; set; } = new List<Group>();
+        public List<Lecturer> Lecturers { get; set; } = new List<Lecturer>();
+
         public void AddLessons(Lesson lesson)
         {
           Lessons.Add(lesson);
@@ -34,5 +36,15 @@ namespace RESTfull.Domain
           Groups.RemoveAt(index);
         }
         public int GroupsCount { get { return Groups.Count; } }
-  }
+
+        public void AddLecturer(Lecturer lecturer)
+        {
+            Lecturers.Add(lecturer);
+        }
+        public void RemoveLecturer(int index)
+        {
+            Lecturers.RemoveAt(index);
+        }
+        public int LecturerCount { get { return Lecturers.Count; } }
+    }
 }
