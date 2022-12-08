@@ -10,5 +10,16 @@
     //Свойства навигации
     public Lesson Lesson { get; set; }
     public List<Lesson> Lessons { get; set; } = new List<Lesson>();
+
+    public void AddLessons(Lesson lesson)
+    {
+      Lessons.Add(lesson);
+    }
+    public void RemoveLesson(int index)
+    {
+      Lessons.RemoveAt(index);
+    }
+    public int LessonCount { get { return Lessons.Count; } }
+
   }
 }

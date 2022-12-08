@@ -11,5 +11,15 @@
     public Discipline Discipline { get; set; } = null!;
     public List<Discipline> Disciplines { get; set; } = new List<Discipline>();
 
+    public void AddDiscipline(Discipline discipline)
+    {
+      Disciplines.Add(discipline);
+    }
+    public void RemoveDiscipline(int index)
+    {
+      Disciplines.RemoveAt(index);
+    }
+    public int DisciplineCount { get { return Disciplines.Count; } }    
+
   }
 }
