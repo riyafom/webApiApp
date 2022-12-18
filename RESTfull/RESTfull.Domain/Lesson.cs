@@ -8,9 +8,9 @@ namespace RESTfull.Domain
 {
     public enum LessonType
     {
-        Lecture, 
-        Practical,
-        Laboratory
+        Лекция, 
+        Практика,
+        Лабораторная
     }
     public class Lesson
     {

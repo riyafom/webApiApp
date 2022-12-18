@@ -18,8 +18,7 @@ namespace webApiApp.Controllers
     {
       _context = context;
       _groupRepository = new GroupRepository(_context);
-      /* снять примечание после описания репозитория
-          _groupRepository = new GroupRepository(_context);*/
+
     }
 
 

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTfull.Domain", "RESTfull
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTfull.Infrastructure", "RESTfull\RESTfull.Infrastructure\RESTfull.Infrastructure.csproj", "{77CC7D19-E5BE-4EDD-9F5F-A1F21FBCA745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHelper", "TestHelper\TestHelper.csproj", "{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestHelper", "TestHelper\TestHelper.csproj", "{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebApiApp", "BlazorWebApiApp\BlazorWebApiApp.csproj", "{CF958B4A-BA71-4155-9288-6B4E335C1AF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71F35DD6-A1D0-458F-99F4-CC5EBAD612FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF958B4A-BA71-4155-9288-6B4E335C1AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF958B4A-BA71-4155-9288-6B4E335C1AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF958B4A-BA71-4155-9288-6B4E335C1AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF958B4A-BA71-4155-9288-6B4E335C1AF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
