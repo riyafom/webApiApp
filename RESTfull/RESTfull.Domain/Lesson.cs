@@ -22,7 +22,7 @@ namespace RESTfull.Domain
         //Свойства навигации
         public Lecturer Lecturer { get; set; } 
         public int LecturerId { get; set; }
-        public int DisciplineId { get; set; }
+        public int DisciplineId { get; set; } 
         public Discipline Discipline { get; set; }
     }
 }
