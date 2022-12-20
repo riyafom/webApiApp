@@ -8,7 +8,6 @@
     public string MiddleName { get; set; } = String.Empty;
 
     //Свойства навигации
-    public Lesson Lesson { get; set; }
     public List<Lesson> Lessons { get; set; } = new List<Lesson>();
 
     public void AddLessons(Lesson lesson)

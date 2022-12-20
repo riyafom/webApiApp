@@ -8,7 +8,7 @@
 
     //Свойства навигации
     public int DisciplineId { get; set; }
-    public Discipline Discipline { get; set; } = null!;
+    //public Discipline Discipline { get; set; } = null!;
     public List<Discipline> Disciplines { get; set; } = new List<Discipline>();
 
     public void AddDiscipline(Discipline discipline)
